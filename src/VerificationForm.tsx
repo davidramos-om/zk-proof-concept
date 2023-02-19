@@ -42,14 +42,14 @@ export function VerificationForm({ hash }: Props) {
                         <div className="lg:pr-8 lg:pt-4">
                             <div className="lg:max-w-lg">
                                 <h1 className="text-2xl font-semibold text-gray-700 dark:text-white">
-                                    Proving the validity
+                                    Proving an argument is valid
                                 </h1>
                                 <p className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
                                     Non-interactive zero-knowledge proofs
                                 </p>
 
                                 <div className="mb-6">
-                                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white pt-10">
                                         The way you identified yourself
                                     </label>
                                     <input

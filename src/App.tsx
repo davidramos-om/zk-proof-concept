@@ -35,6 +35,7 @@ function App() {
   }
 
 
+  const boxContainerClass = 'w-[25rem,full] h-[25rem]';
   return (
     <div className="rounded-lg p-6 p-8 ring-1 ring-slate-900/5">
 
@@ -59,80 +60,87 @@ function App() {
       </h1>
 
 
-      <div className="container max-w-full max-h-full mx-auto overflow-auto">        
+      <div className="container max-w-full max-h-full mx-auto overflow-auto">
         <div className="flex flex-row items-center justify-center text-gray-600" >
           <img src="/vite.svg" className="logo" alt="Vite logo" />
         </div>
 
-        <div className="flex flex-col md:flex-row space-x-4 space-y-4 items-center justify-around">
-          <Box
-            title="PROVER"
-            borderClass="border-2 border-orange-500"
-            height="25"
-            width="25"
-          >
-            {userId && token && (
-              <div className="flex flex-col space-y-4">
-                <h4 className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
-                  The customer knows the following:
-                </h4>
-                <p className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
-                  The username: <span className="text-slate-900 dark:text-white mt-5 text-base font-bold tracking-tight">{` ${userId}`}</span>
-                </p>
-                <p className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
-                  The verification code:
-                  <span className="text-slate-900 dark:text-white mt-5 text-base font-bold tracking-tight">
-                    {` ${token}`}
-                  </span>
-                </p>
-                <span className="bg-green-100 text-green-800 text-sm font-medium p-1 m-1  rounded dark:bg-green-900 dark:text-green-300">
-                  The code was displayed or sent to the customer via email or SMS
-                </span>
-                <span className="bg-red-100 text-red-800 text-xs font-bold p-1 m-1 rounded dark:bg-red-900 dark:text-red-300">
-                  It must never be stored in the database.
-                </span>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
+            <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+              <div className="group relative">
+                <Box
+                  title="PROVER"
+                  borderClass="border-2 border-orange-500"
+                  containerClass={boxContainerClass}
+                >
+                  {userId && token && (
+                    <div className="flex flex-col space-y-4">
+                      <h4 className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
+                        The customer knows the following:
+                      </h4>
+                      <p className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
+                        The username: <span className="text-slate-900 dark:text-white mt-5 text-base font-bold tracking-tight">{` ${userId}`}</span>
+                      </p>
+                      <p className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
+                        The verification code:
+                        <span className="text-slate-900 dark:text-white mt-5 text-base font-bold tracking-tight">
+                          {` ${token}`}
+                        </span>
+                      </p>
+                      <span className="bg-green-100 text-green-800 text-sm font-medium p-1 m-1  rounded dark:bg-green-900 dark:text-green-300">
+                        The code was displayed or sent to the customer via email or SMS
+                      </span>
+                      <span className="bg-red-100 text-red-800 text-xs font-bold p-1 m-1 rounded dark:bg-red-900 dark:text-red-300">
+                        It must never be stored in the database.
+                      </span>
+                    </div>
+                  )}
+                </Box>
               </div>
-            )}
-          </Box>
+              <div className="group relative">
+                <Box
+                  title="SUCCINCT / SECRET"
+                  borderClass="border-2 border-blue-500"
+                  containerClass={boxContainerClass}
+                >
+                  {succinct && (
+                    <div className="flex flex-col space-y-4">
+                      <h4 className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
+                        The following pair is created to generate the hash:
+                      </h4>
+                      <p className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
+                        {succinct}
+                      </p>
+                    </div>
+                  )}
+                </Box>
+              </div>
+              <div className="group relative">
+                <Box
+                  title="VERIFIER"
+                  borderClass="border-2 border-green-500"
+                  containerClass={boxContainerClass}
+                >
+                  {hash && (
+                    <div className="flex flex-col space-y-4">
+                      <h4 className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
+                        The verifier knows the following:
+                      </h4>
+                      <p className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
+                        The hash: <span className="text-slate-900 dark:text-white mt-5 text-base font-bold tracking-tight break-words p-1">{` ${hash}`}</span>
+                      </p>
+                      <span className="bg-purple-100 text-purple-800 text-sm font-medium p-1 m-1 rounded dark:bg-purple-900 dark:text-purple-300">
+                        Only the hash and nothing else must be stored in the database.
+                      </span>
+                    </div>
+                  )}
+                </Box>
+              </div>
 
-          <Box
-            title="SUCCINCT / SECRET"
-            borderClass="border-2 border-blue-500"
-            height="25"
-            width="25"
-          >
-            {succinct && (
-              <div className="flex flex-col space-y-4">
-                <h4 className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
-                  The following pair is created to generate the hash:
-                </h4>
-                <p className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
-                  {succinct}
-                </p>
-              </div>
-            )}
-          </Box>
+            </div>
+          </div>
 
-          <Box
-            title="VERIFIER"
-            borderClass="border-2 border-green-500"
-            height="25"
-            width="25"
-          >
-            {hash && (
-              <div className="flex flex-col space-y-4">
-                <h4 className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
-                  The verifier knows the following:
-                </h4>
-                <p className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
-                  The hash: <span className="text-slate-900 dark:text-white mt-5 text-base font-bold tracking-tight break-words p-1">{` ${hash}`}</span>
-                </p>
-                <span className="bg-purple-100 text-purple-800 text-sm font-medium p-1 m-1 rounded dark:bg-purple-900 dark:text-purple-300">
-                  Only the hash and nothing else must be stored in the database.
-                </span>
-              </div>
-            )}
-          </Box>
         </div>
         <br />
         <br />
