@@ -2,6 +2,13 @@ import { useState } from "react";
 
 export const getThemeMode = () => {
 
+
+    const localTheme = localStorage.theme;
+    if (localTheme && (localTheme === 'dark' || localTheme === 'light')) {
+        console.log('localTheme', localTheme)
+        return localTheme
+    }
+
     const htmlClass = document.documentElement.classList;
     if (htmlClass.contains('dark'))
         return 'dark'
@@ -10,11 +17,6 @@ export const getThemeMode = () => {
     if (htmlClass.contains('light'))
         return 'light'
 
-    const localTheme = localStorage.theme;
-    if (localTheme && (localTheme === 'dark' || localTheme === 'light')) {
-        return localTheme
-    }
-
     return 'light'
 }
 
@@ -22,7 +24,7 @@ export const getThemeMode = () => {
 export function ThemeMode() {
 
 
-    const [ mode, setMode ] = useState<'dark' | 'light'>('light')
+    const [ mode, setMode ] = useState<'dark' | 'light'>('dark')
 
     const handleThemeMode = () => {
 
@@ -30,13 +32,15 @@ export function ThemeMode() {
 
         if (theme === 'dark') {
             document.documentElement.classList.remove('dark')
-            document.documentElement.classList.add('light')
+            document.documentElement.classList.add('light')            
+            document.documentElement.style.setProperty('background-color', 'white')
             localStorage.theme = 'light'
             setMode('light')
         }
         else {
             document.documentElement.classList.remove('light')
             document.documentElement.classList.add('dark')
+            document.documentElement.style.setProperty('background-color', '#f7fafc')
             localStorage.theme = 'dark'
             setMode('dark')
         }

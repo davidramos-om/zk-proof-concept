@@ -40,61 +40,25 @@ function App() {
 
       <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
         <svg className="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]" viewBox="0 0 1155 678">
-          <path fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)" fill-opacity=".3" d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z" />
+          <path fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)" fillOpacity=".3" d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z" />
           <defs>
             <linearGradient id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533" x1="1155.49" x2="-78.208" y1=".177" y2="474.645" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#9089FC" />
-              <stop offset="1" stop-color="#FF80B5" />
+              <stop stopColor="#9089FC" />
+              <stop offset="1" stopColor="#FF80B5" />
             </linearGradient>
           </defs>
         </svg>
       </div>
 
-      <div className="overflow-hidden bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 gap-x-8 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-            <div className="lg:pr-8 lg:pt-4">
-              <div className="lg:max-w-lg">
-                <form onSubmit={handleSubmit} >
-                  <div
-                    className={`p-6 bg-white border rounded-lg shadow dark:bg-gray-800`}
-                  >
-                    <h1 className="text-2xl font-semibold text-gray-700 dark:text-white">
-                      Generate Auth Token
-                    </h1>
-                    <div className="mb-6">
-                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        A way to identify you
-                      </label>
-                      <input
-                        type="text"
-                        id="value"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Enter any value"
-                        required
-                        value={userId}
-                        onChange={e => setUserId(e.target.value)}
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                      Generate
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-            {/* <img src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png" alt="Product screenshot" className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0" width="2432" height="1442" /> */}
-            <VerificationForm hash={hash} />
-          </div>
-        </div>
-      </div>
+      <ThemeMode />
 
-      <div className="container max-w-full max-h-full mx-auto overflow-auto">
+      <h1
+        className="font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 break-words "
+      >
+        Simulation of ZK-Proofs
+      </h1>
 
-        <ThemeMode />
-
+      <div className="container max-w-full max-h-full mx-auto overflow-auto">        
         <div className="flex flex-row items-center justify-center text-gray-600" >
           <img src="/vite.svg" className="logo" alt="Vite logo" />
         </div>
@@ -173,40 +137,44 @@ function App() {
         <br />
         <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
 
-        <div className="flex flex-col md:flex-row space-x-4 space-y-4 items-center justify-around" >
-          <form onSubmit={handleSubmit} >
-            <div
-              className={`p-6 bg-white border rounded-lg shadow dark:bg-gray-800`}
-              style={{
-                width: '500px',
-                height: '400px',
-              }}
-            >
-              <h1 className="text-2xl font-semibold text-gray-700 dark:text-white">
-                Generate Auth Token
-              </h1>
-              <div className="mb-6">
-                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  A way to identify you
-                </label>
-                <input
-                  type="text"
-                  id="value"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Enter any value"
-                  required
-                  value={userId}
-                  onChange={e => setUserId(e.target.value)}
-                />
+        <div className="overflow-hidden bg-white dark:bg-gray-800 py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 gap-x-8 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+              <div className="lg:pr-8 lg:pt-4">
+                <div className="lg:max-w-lg">
+                  <form onSubmit={handleSubmit} >
+                    <div
+                      className={`p-6 bg-white border rounded-lg shadow dark:bg-gray-800`}
+                    >
+                      <h1 className="text-2xl font-semibold text-gray-700 dark:text-white">
+                        Generate Auth Token
+                      </h1>
+                      <div className="mb-6">
+                        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                          A way to identify you
+                        </label>
+                        <input
+                          type="text"
+                          id="value"
+                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="Enter any value"
+                          required
+                          value={userId}
+                          onChange={e => setUserId(e.target.value)}
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Generate
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
-              <button
-                type="submit"
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Generate
-              </button>
+              <VerificationForm hash={hash} />
             </div>
-          </form>
-          <VerificationForm hash={hash} />
+          </div>
         </div>
       </div>
     </div >
