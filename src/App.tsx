@@ -53,10 +53,11 @@ function App() {
       <ThemeMode />
 
       <h1
-        className="font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 break-words "
+        className="font-extrabold text-transparent text-6xl lg:text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 break-words "
       >
-        Simulation of ZK-Proofs
+        ZK-Proofs Simulation
       </h1>
+
 
       <div className="container max-w-full max-h-full mx-auto overflow-auto">        
         <div className="flex flex-row items-center justify-center text-gray-600" >
