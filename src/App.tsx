@@ -53,7 +53,7 @@ function App() {
       <ThemeMode />
 
       <h1
-        className="font-extrabold text-transparent text-6xl lg:text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 break-words "
+        className="font-extrabold text-transparent text-5xl lg:text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 break-words "
       >
         ZK-Proofs Simulation
       </h1>
